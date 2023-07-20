@@ -1,0 +1,26 @@
+name: Custom Actions
+
+on:
+  workflow_dispatch:
+    inputs:
+      firstNameStudent:
+        description: 'First name of student'
+        required: false
+        default: '1'
+      studentGrade:
+        description: 'Grade of the student'
+        required: true
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Run Hello World Action
+      uses: ./
+      with:
+        firstNameStudent: ${{ github.event.inputs.firstNameStudent }}
+        studentGrade: ${{ github.event.inputs.studentGrade }}
