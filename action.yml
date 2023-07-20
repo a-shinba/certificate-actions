@@ -1,4 +1,4 @@
-// name, description, runsは必須パラメータ
+# name, description, runsは必須パラメータ
 name: 'Hello World'
 description: 'Outputs a Hello World message'
 runs:
