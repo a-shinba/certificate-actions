@@ -1,6 +1,14 @@
 # name, description, runsは必須パラメータ
 name: 'Hello World'
 description: 'Outputs a Hello World message'
+inputs:
+  firstNameStudent:
+    description: 'First name of student'
+    required: false
+    default: '1'
+  studentGrade:
+    description: 'Grade of the student'
+    required: true
 runs:
   using: 'node12'
   main: 'index.js'
