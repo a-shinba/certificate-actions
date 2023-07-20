@@ -24,3 +24,12 @@ jobs:
       with:
         firstNameStudent: ${{ github.event.inputs.firstNameStudent }}
         studentGrade: ${{ github.event.inputs.studentGrade }}
+
+    - name: Output debug message
+      run: echo "::debug::Debug message: Hello, World!"
+
+    - name: Output warning message
+      run: echo "::warning::Warning message: This is a warning."
+
+    - name: Output error message
+      run: echo "::error::Error message: An error occurred."
