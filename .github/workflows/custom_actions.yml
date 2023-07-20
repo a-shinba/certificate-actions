@@ -31,3 +31,10 @@ jobs:
         echo "This is an info message"
         echo "::error::This is an error message"
         echo "::warning::This is a warning message"
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: ./path-to-your-artifact
+        retention-days: 15
