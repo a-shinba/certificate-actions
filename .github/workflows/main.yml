@@ -1,0 +1,14 @@
+name: Main
+
+on: [push]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Run Hello World Action
+      uses: ./ # Uses an action in the root directory
