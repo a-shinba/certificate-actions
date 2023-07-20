@@ -1,0 +1,5 @@
+name: 'Hello World'
+description: 'Outputs a Hello World message'
+runs:
+  using: 'node12'
+  main: 'index.js'
