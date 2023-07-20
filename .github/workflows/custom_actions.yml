@@ -25,11 +25,9 @@ jobs:
         firstNameStudent: ${{ github.event.inputs.firstNameStudent }}
         studentGrade: ${{ github.event.inputs.studentGrade }}
 
-    - name: Output debug message
-      run: echo "::debug::Debug message: Hello, World!"
-
-    - name: Output warning message
-      run: echo "::warning::Warning message: This is a warning."
-
-    - name: Output error message
-      run: echo "::error::Error message: An error occurred."
+    - name: workflow commands logging messages
+      run: |
+        echo "::debug::This is a debug message"
+        echo "This is an info message"
+        echo "::error::This is an error message"
+        echo "::warning::This is a warning message"
