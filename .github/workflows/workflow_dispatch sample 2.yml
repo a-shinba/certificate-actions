@@ -3,7 +3,7 @@ name: workflow_dispatch sample 2
 on:
   workflow_dispatch:
     inputs:
-      name:
+      your-name:
         description: 'Name'
         required: true
 
