@@ -1,4 +1,4 @@
-name: workflow_dispatch sample 3
+name: actions3 echo
 
 on:
   workflow_dispatch:
