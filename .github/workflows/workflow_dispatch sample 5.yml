@@ -28,4 +28,4 @@ jobs:
     steps:
       - run: |
           echo "sleep10中..."
-          sleep10
+          sleep 10
