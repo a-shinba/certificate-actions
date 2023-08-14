@@ -1,4 +1,4 @@
-name: workflow_dispatch sample 1
+name: actions1 on issue comment
 
 on:
   workflow_dispatch:
@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: print log
-      run: echo "Hello!"
+      run: echo "You got a comment on issue"
