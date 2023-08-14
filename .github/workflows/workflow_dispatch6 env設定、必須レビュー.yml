@@ -1,4 +1,4 @@
-name: workflow_dispatch env設定、必須review
+name: workflow_dispatch6 env、必須review
 
 on:
   workflow_dispatch
