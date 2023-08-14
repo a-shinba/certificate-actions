@@ -1,4 +1,4 @@
-name: workflow_dispatch sample 2
+name: workflow_dispatch2 inputs
 
 on:
   workflow_dispatch:
