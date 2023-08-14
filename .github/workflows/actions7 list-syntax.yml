@@ -1,4 +1,4 @@
-name: workflow_dispatch7 list-syntax
+name: actions7 list-syntax
 
 on:
   workflow_dispatch:
