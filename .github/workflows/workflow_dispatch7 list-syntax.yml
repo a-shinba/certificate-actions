@@ -10,5 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step for main
+        id: mystep1
         if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
-        run: echo 'job1'
+        run: echo "this is job1.${{ steps.mystep1.outputs.name }}"
