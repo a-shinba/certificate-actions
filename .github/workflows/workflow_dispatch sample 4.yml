@@ -13,9 +13,6 @@ jobs:
 
   concurrency-job:
     runs-on: ubuntu-20.04
-    concurrency:
-      group: this_is_concurrency_job
-      cancel-in-progress: false
     steps:
       - run: |
           echo "sleep60中..."
@@ -25,9 +22,6 @@ jobs:
     runs-on: ubuntu-20.04
     needs:
       - normal-job
-    concurrency:
-      group: this_is_concurrency_job2
-      cancel-in-progress: false
     steps:
       - run:  |
           echo "sleep20中..."
@@ -37,8 +31,6 @@ jobs:
     runs-on: ubuntu-20.04
     needs:
       - dependent-job
-    concurrency:
-      this_is_concurrency_job
     steps:
       - run:  |
           echo "sleep5中..."
