@@ -15,4 +15,7 @@ jobs:
         env: 
           STEP_NAME: mystep1
         if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
-        run: echo "this is $JOB_NAME.$STEP_NAME"
+        run: |
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          echo "This is $JOB_NAME.$STEP_NAME."
+          echo "The changed file is $CHANGED_FILES"
