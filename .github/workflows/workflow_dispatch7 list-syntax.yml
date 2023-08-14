@@ -1,0 +1,14 @@
+name: workflow_dispatch7 list-syntax
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, sub]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step for main
+        if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+        run: echo 'job1'
