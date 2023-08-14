@@ -1,35 +1,45 @@
 name: workflow_dispatch sample 4
 
 on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
-        type: choice
-        options:
-        - info
-        - warning
-        - debug
-      tags:
-        description: 'Test scenario tags'
-        required: false
-        type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true
+  workflow_dispatch
 
 jobs:
-  log-the-inputs:
-    runs-on: ubuntu-latest
+  normal-job:
+    runs-on: ubuntu-20.04
     steps:
       - run: |
-          echo "Log level: $LEVEL"
-          echo "Tags: $TAGS"
-          echo "Environment: $ENVIRONMENT"
-        env:
-          LEVEL: ${{ inputs.logLevel }}
-          TAGS: ${{ inputs.tags }}
-          ENVIRONMENT: ${{ inputs.environment }}
+          echo "sleep5中..."
+          sleep 5
+
+  concurrency-job:
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: this_is_concurrency_job
+      cancel-in-progress: false
+    steps:
+      - run: |
+          echo "sleep60中..."
+          sleep 60
+
+  dependent-job:
+    runs-on: ubuntu-20.04
+    needs:
+      - normal-job
+    concurrency:
+      group: this_is_concurrency_job2
+      cancel-in-progress: false
+    steps:
+      - run:  |
+          echo "sleep20中..."
+          sleep 20
+
+  after-job:
+    runs-on: ubuntu-20.04
+    needs:
+      - dependent-job
+    concurrency:
+      this_is_concurrency_job
+    steps:
+      - run:  |
+          echo "sleep5中..."
+          sleep 5
