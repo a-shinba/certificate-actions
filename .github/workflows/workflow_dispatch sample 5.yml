@@ -1,0 +1,22 @@
+name: workflow_dispatch sample 5
+on:
+  workflow_dispatch
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "sleep10中..."
+          sleep 10
+  
+  job2:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: |
+          echo "sleep20中..."
+          sleep 20
