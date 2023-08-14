@@ -12,4 +12,4 @@ jobs:
       - name: step for main
         id: mystep1
         if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
-        run: echo "this is job1.${{ steps.mystep1.outputs.name }}"
+        run: echo "this is job1.'${{ steps.mystep1.outputs.name }}'"
