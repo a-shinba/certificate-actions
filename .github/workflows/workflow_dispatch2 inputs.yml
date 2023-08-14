@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       your-name:
-        description: 'Name'
+        description: 'String'
         required: true
+        default: 'a-shinba'
 
 jobs:
   printLog:
