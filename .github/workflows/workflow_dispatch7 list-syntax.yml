@@ -8,8 +8,11 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
+    env:
+      JOB_NAME: job1
     steps:
       - name: step for main
-        id: mystep1
+        env: 
+          STEP_NAME: mystep1
         if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
-        run: echo "this is job1.'${{ steps.mystep1.outputs.name }}'"
+        run: echo "this is $JOB_NAME.$STEP_NAME"
