@@ -1,4 +1,4 @@
-name: workflow_dispatch sample 5
+name: workflow_dispatch concurrency
 
 on:
   workflow_dispatch
