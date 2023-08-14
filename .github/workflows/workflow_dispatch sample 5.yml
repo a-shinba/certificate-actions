@@ -1,4 +1,5 @@
 name: workflow_dispatch sample 5
+
 on:
   workflow_dispatch
 
@@ -20,3 +21,11 @@ jobs:
       - run: |
           echo "sleep20中..."
           sleep 20
+
+  job3:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - run: |
+          echo "sleep10中..."
+          sleep10
